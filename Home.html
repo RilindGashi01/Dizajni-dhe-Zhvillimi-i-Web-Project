@@ -48,13 +48,29 @@
         <h1 class="main-h1">BOOK OR ORDER ONLINE</h1>
         <p class="paragraph">MORE INFORMATION ABOUT RESERVES DOWN BELOW</p>
         <div class="buttons">
-        <button class="first butt">RESERVES</button>
-        <button class="second butt">ORDER ONLINE</button>
+        <button id="reservation" class="first butt">RESERVES</button>
+        <buttonn id="order-online" class="second butt" >ORDER ONLINE</button>
         </div>
       </div>
+
+      <form id="reservationBox">
+        <span id="closeButton">&times;</span>
+        <h2>Reservation Details</h2>
+        <label for="date">Date and Time:</label>
+        <input type="datetime-local" id="date" required>
+        <label for="persons">Number of Persons:</label>
+        <input type="number" id="persons" required>
+        <label class="checkbox-label">
+            <input type="checkbox" id="outside"> Reserve Outside
+        </label>
+        <label class="checkbox-label">
+            <input type="checkbox" id="inside"> Reserve Inside
+        </label>
+        <button id="reserveButton" >Reserve</button>
+    </form>
 
      
 
 </body>
-<script src="script.js"></script>
+<script src="Home.js"></script>
 </html>
