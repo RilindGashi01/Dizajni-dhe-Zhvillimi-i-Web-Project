@@ -82,7 +82,7 @@ body{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .menus{
-    width: 55%;
+    width: 58%;
     color: #fff;
     margin: 50px auto;
     padding-bottom: 50px;
@@ -243,4 +243,57 @@ body{
 
 p {
     line-height: 1.6;
+}
+.form-container {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+    background: url(/Images/menu-background-2.jpg);
+}
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
+.form-container label, .form-container input, .form-container button {
+    margin-bottom: 10px;
+}
+.form-container button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.form-container button:hover {
+    background-color: #45a049;
+}
+.logsig{
+    display: flex;
+    margin-top: 80px;
+    justify-content: center;
+}
+.singup{
+    display: none;
+}
+.form-container > h2{
+    text-align: center;
+}
+.logreg{
+    display: flex;
+    gap: 10px;
+    justify-content:space-between;
+}
+.error{
+    color: white;
+}
+.error{
+    margin: 0;
+    color: red;
+    font-size: 9px;
+    display: none;
 }

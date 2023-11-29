@@ -8,6 +8,11 @@ reser.addEventListener('click' , () =>{
 close_res.addEventListener('click', () =>{
     menu_res.style.display = 'none';
 })
+const order_online =document.querySelector('#order-online')
+
+order_online.addEventListener('click', ()=>{
+    window.location.href ='Order.html';
+})
 
 const res_btn = document.querySelector('#reserveButton')
 res_btn.addEventListener('click', () =>{
@@ -19,18 +24,21 @@ res_btn.addEventListener('click', () =>{
             return "Inside"
         }
     }
-    const resveration = {
+    const resveration = { 
         date : document.querySelector('#date').value,
         nrPersons : document.querySelector('#persons').value,
         OutIn: handleCheckbutton()
     }
     console.log(resveration)
-    localStorage.setItem('Reservation',JSON.stringify(resveration))
+    const pastReser = JSON.parse(localStorage.getItem('Reservation'))
+    if(pastReser === null){
+        localStorage.setItem('Reservation',JSON.stringify([resveration]))
+    }else{
+        localStorage.setItem('Reservation',JSON.stringify([...pastReser,resveration]))
+    }
+    
     menu_res.style.display = 'none';
     alert("You have succesfully reserved!")
     menu_res.reset();
 })
-const order_online =document.querySelector('#order-online')
-order_online.addEventListener('click', ()=>{
-    window.location.href ='Order.html';
-})
+

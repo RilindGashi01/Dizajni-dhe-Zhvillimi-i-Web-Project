@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid" >
+            <a class="navbar-brand" href="#">Restaurant</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarNav">
+                <ul class="navbar-nav ms-auto ">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="Home.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="online-orders" class="nav-link" href="Order.html">ORDER</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="About.html">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Sing_up.html" onload="displayUser()" id="singedUp">SING UP</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="logsig">
+        <div class="form-container login">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <p id="LoginError" class="error">Your name or password dosent match with any of our users, But you can register now</p>
+                <div class="logreg">
+                <button type="button" class="BtnLogin">Login</button>
+                <button type="button" class="regist">Resgister</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="form-container singup">
+            <h2>Sign-up</h2>
+            <form id="signupForm">
+                <label for="UsernameofSingUp">Username:</label>
+                <p id="usernameError" class="error">Username must be at least 6 characters long.</p>
+                <input type="text" id="UsernameofSingUp" name="UsrnameofSingUp" class="usernameSingUp" required>
+                <label for="newEmail">Email:</label>
+                <p id="emailError" class="error">Username must contain @ and ends with .com.</p>
+                <input type="email" id="newEmail" name="newEmail">
+                <label for="newPassword">Password:</label>
+                <p id="passwordError" class="passwordError error">Passwords do not match.</p>
+                <input type="password" id="newPassword" name="newPassword" required>
+                <label for="newPassword-2">Repeat-Password:</label>
+                <input type="password" id="newPassword-2" name="newPassword-2" required>
+                <button type="button" class="singbutt">Sign Up</button>
+            </form>
+            <div id="signupError" class="error"></div>
+        </div>
+    </div>
+</body>
+<script src="Sing_up.js"></script>
+</html>
