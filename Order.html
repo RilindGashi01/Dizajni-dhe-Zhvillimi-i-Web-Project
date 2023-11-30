@@ -40,7 +40,10 @@
                         <a class="nav-link" href="About.html">ABOUT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Sing_up.html">SING UP</a>
+                        <a class="nav-link"  href="Sing_up.html" id="singedUp">SING UP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="card" href="Card.html">CARD</a>
                     </li>
                 </ul>
             </div>
@@ -64,7 +67,7 @@
                         <div class="drink-details">
                             <p class="item-name">Coca-Cola  0.5l</p>
                             <p class="item-price">$1.20</p>
-                            <button id="myButton">Order</button>
+                            <button id="myButton" onclick="hadleOrder('Coca-Cola  0.5l','$1.20')">Order</button>
                         </div>
                         </div>
                         <div class="drink-item">
@@ -72,7 +75,7 @@
                             <div class="drink-details">
                                 <p class="item-name">Sprite  0.5l</p>
                                 <p class="item-price">$1.00</p>
-                                <button>Order</button>
+                                <button id="myButton" onclick="hadleOrder('Sprite  0.5l','$1.00')">Order</button>
                             </div>
                         </div>
                         <div class="drink-item">
@@ -80,15 +83,15 @@
                             <div class="drink-details">
                                 <p class="item-name">Fanta  0.5l</p>
                                 <p class="item-price">$1.20</p>
-                                <button>Order</button>
+                                <button id="myButton" onclick="hadleOrder('Fanta  0.5l','$1.20')">Order</button>
                             </div>
                         </div>
                         <div class="drink-item">
                             <img src="images/Water.jpg" alt="Drink 1">
                             <div class="drink-details">
                                 <p class="item-name">Water  0.5l</p>
-                                <p class="item-price">$0.50</p>
-                                <button>Order</button>
+                                <p class="item-price" >$0.50</p>
+                                <button onclick="hadleOrder('Water  0.5l','$0.50')">Order</button>
                             </div>
                         </div>
                         <div class="drink-item">
@@ -96,7 +99,7 @@
                             <div class="drink-details">
                                 <p class="item-name">Pepsi 0.5l</p>
                                 <p class="item-price">$1.20</p>
-                                <button>Order</button>
+                                <button onclick="hadleOrder('Pepsi  0.5l','$1.20')">Order</button>
                             </div>
                         </div>  
                     </div>
@@ -109,7 +112,7 @@
                     <div class="drink-details">
                         <p class="item-name">Spaghetti Carbonara </p>
                         <p class="item-price">$6.00</p>
-                        <button>Order</button>
+                        <button onclick="hadleOrder('Spaghetti Carbonara','$6.00')">Order</button>
                     </div>
                     </div>
                     <div class="drink-item">
@@ -117,7 +120,7 @@
                         <div class="drink-details">
                             <p class="item-name">Spaghetti Bologneze</p>
                             <p class="item-price">$8.00</p>
-                            <button>Order</button>
+                            <button onclick="hadleOrder('Spaghetti Bologneze','$8.00')">Order</button>
                         </div>
                     </div>
                     <div class="drink-item">
@@ -125,7 +128,7 @@
                         <div class="drink-details">
                             <p class="item-name">Spaghetti & MeatBalls</p>
                             <p class="item-price">$5.00</p>
-                            <button>Order</button>
+                            <button onclick="hadleOrder('Spaghetti & MeatBalls','$5.00')">Order</button>
                         </div>
                     </div>
                     <div class="drink-item">
@@ -133,7 +136,7 @@
                         <div class="drink-details">
                             <p class="item-name">Chicken Spaghetti</p>
                             <p class="item-price">$4.50</p>
-                            <button>Order</button>
+                            <button onclick="hadleOrder('Chicken Spaghetti','$4.50')">Order</button>
                         </div>
                     </div>
                     <div class="drink-item">
@@ -141,7 +144,7 @@
                         <div class="drink-details">
                             <p class="item-name">Cheese Spaghetii</p>
                             <p class="item-price">$6.00</p>
-                            <button>Order</button>
+                            <button onclick="hadleOrder('Cheese Spaghetti','$6.00')">Order</button>
                         </div>
                     </div>
                     
@@ -155,7 +158,7 @@
                 <div class="drink-details">
                     <p class="item-name">Pepperoni</p>
                     <p class="item-price">$7.00</p>
-                    <button>Order</button>
+                    <button onclick="hadleOrder('Pepperoni','$7.00')">Order</button>
                 </div>
                 </div>
                 <div class="drink-item">
@@ -163,7 +166,7 @@
                     <div class="drink-details">
                         <p class="item-name">Burrata & Sopressata</p>
                         <p class="item-price">$9.00</p>
-                        <button>Order</button>
+                        <button onclick="hadleOrder('Burrata & Sopressata','$9.00')">Order</button>
                     </div>
                 </div>
                 <div class="drink-item">
@@ -171,7 +174,7 @@
                     <div class="drink-details">
                         <p class="item-name">Pizza Calzone</p>
                         <p class="item-price">$6.00</p>
-                        <button>Order</button>
+                        <button onclick="hadleOrder('Pizza Calzone','$6.00')">Order</button>
                     </div>
                 </div>
                 <div class="drink-item">
@@ -179,7 +182,7 @@
                     <div class="drink-details">
                         <p class="item-name">Pizza Frango</p>
                         <p class="item-price">$5.50</p>
-                        <button>Order</button>
+                        <button onclick="hadleOrder('Pizaa Frango','$5.50')">Order</button>
                     </div>
                 </div>
                 <div class="drink-item">
@@ -187,7 +190,7 @@
                     <div class="drink-details">
                         <p class="item-name">Pizza Margherita</p>
                         <p class="item-price">$6.50</p>
-                        <button>Order</button>
+                        <button onclick="hadleOrder('Pizza Margherita','$6.50')">Order</button>
                     </div>
                 </div>
                 
@@ -195,5 +198,5 @@
          </div>
         </div>
 </body>
-<script src="Order.js"></script>
+<script  src="Order.js"></script>
 </html>

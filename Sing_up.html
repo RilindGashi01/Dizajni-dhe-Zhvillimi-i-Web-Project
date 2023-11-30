@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -27,12 +29,18 @@
                         <a class="nav-link" href="About.html">ABOUT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Sing_up.html" onload="displayUser()" id="singedUp">SING UP</a>
+                        <a class="nav-link" id="singedUp">SING UP</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+    <div class="box-container-of-singout" id="sing-out-box">
+        <div class="box">
+          <a href="#">Reservations/Orders</a>
+          <a id="sing-out-btn">Sign-out</a>
+        </div>
+      </div>
 
     <div class="logsig">
         <div class="form-container login">
@@ -70,5 +78,5 @@
         </div>
     </div>
 </body>
-<script src="Sing_up.js"></script>
+<script type="module" src="Sing_up.js"></script>
 </html>

@@ -27,7 +27,7 @@
                         <a class="nav-link" href="About.html">ABOUT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Sing_up.html">SING UP</a>
+                        <a class="nav-link" href="Sing_up.html" id="singedUp">SING UP</a>
                     </li>
                 </ul>
             </div>
@@ -45,5 +45,13 @@
       </div>
   </div>
 </body>
-<script src="script.js"></script>
+<script>
+    function DisplayUser(){
+    const loggedUser = JSON.parse(localStorage.getItem('LoggedInUsers'))
+    if(loggedUser !== null){
+        document.querySelector('#singedUp').textContent=loggedUser.username;
+    }
+}
+DisplayUser();
+</script>
 </html>

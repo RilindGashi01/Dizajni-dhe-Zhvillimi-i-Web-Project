@@ -297,3 +297,36 @@ p {
     font-size: 9px;
     display: none;
 }
+#singedUp{
+    cursor: pointer;
+}
+.box-container-of-singout{
+    display: none;
+    position: relative;
+  }
+  .box {
+    color: #fff;
+    padding: 15px;
+    position: absolute;
+    background: url('/Images/menu-background-2.jpg');
+    top: 5px;
+    right: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  .box a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+  }
+
+  .box a:hover {
+    background-color: #555;
+  }
+  #card{
+    display: none;
+  }
+  

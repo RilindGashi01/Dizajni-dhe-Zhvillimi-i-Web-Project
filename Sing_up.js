@@ -1,7 +1,7 @@
-function displayUser(){
+function DisplayUser(){
     const loggedUser = JSON.parse(localStorage.getItem('LoggedInUsers'))
     if(loggedUser !== null){
-        document.getElementById('singedUp').value=loggedUser.name
+        document.querySelector('#singedUp').textContent=loggedUser.username;
     }
 }
 const regist = document.querySelector('.regist')
@@ -63,3 +63,24 @@ LoginBtn.addEventListener('click',()=>{
         document.querySelector('#LoginError').style.display='block'
     }
 })
+DisplayUser();
+
+const UserlogOut = document.querySelector('#singedUp')
+if(UserlogOut.innerHTML != 'SING UP'){
+    UserlogOut.addEventListener('click',()=>{
+        const box = document.querySelector('#sing-out-box')
+        if(box.style.display === 'none'){
+            box.style.display = 'block'
+        }else{
+            box.style.display = 'none'
+        }
+    })
+}
+
+const SingOutBtn = document.querySelector('#sing-out-btn')
+SingOutBtn.addEventListener('click', ()=>{
+    localStorage.removeItem('LoggedInUsers')
+    window.location.reload();
+    alert("You have Sing-out")
+})
+

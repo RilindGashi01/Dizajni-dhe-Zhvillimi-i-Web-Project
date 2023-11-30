@@ -2,6 +2,13 @@ const reser = document.querySelector('#reservation')
 const menu_res = document.querySelector('#reservationBox')
 const close_res = document.querySelector('#closeButton')
 
+function DisplayUser(){
+    const loggedUser = JSON.parse(localStorage.getItem('LoggedInUsers'))
+    if(loggedUser !== null){
+        document.querySelector('#singedUp').textContent=loggedUser.username;
+    }
+}
+DisplayUser();
 reser.addEventListener('click' , () =>{
     menu_res.style.display = 'block';
 })
