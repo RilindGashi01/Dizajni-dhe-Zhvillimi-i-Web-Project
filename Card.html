@@ -7,7 +7,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.18.0/font/bootstrap-icons.css">
+ </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid" >
@@ -34,14 +36,83 @@
         </div>
     </nav>
 
-    <div class="OrderdProducts"></div>
+    <div class="OrderdProducts">
+        <div class="h2-ord">
+            <h2 class="h2-order">CARD</h2>
+        </div>
+        <div class="menuProduct"></div>
+        <div class="parent-total">
+            <div class="total-menu">
+                <h2>TOTAL:</h2>
+                <p id="total-amount"></p>
+            </div>
+        </div>
+        <div class="class-checkout">
+        <button class="CheckOutBtn">CHECK-OUT</button>
+        </div>
+    </div>
 
 </body>
 <script>
     const orderedProducts = JSON.parse(localStorage.getItem('Orders'))
-    orderedProducts.forEach(element => {
+    orderedProducts.forEach(orders=>{
+        const containerProducts = document.querySelector('.menuProduct')
         
-    });
+        const divForMenu = document.createElement('div')
+        divForMenu.id = 'divOfMenu'
+
+        const productName = document.createElement('h2');
+        productName.classList = 'name-of-products'
+        productName.textContent = orders.productName;
+        divForMenu.appendChild(productName);
+
+        const quantityInput = document.createElement('input');
+        quantityInput.type = 'number';
+        quantityInput.classList = 'quantity-of-order';
+        quantityInput.value = 5;
+        divForMenu.appendChild(quantityInput)
+
+        const dynamicButton = document.createElement('button');
+        dynamicButton.textContent = 'Delete';
+        dynamicButton.classList = 'Delete-btn'
+        divForMenu.appendChild(dynamicButton)
+
+        const productPrice = document.createElement('p')
+        productPrice.classList = 'price-of-product'
+        productPrice.textContent = orders.productPrice
+        divForMenu.appendChild(productPrice)
+
+        containerProducts.appendChild(divForMenu)
+
+        dynamicButton.addEventListener('click',()=>{
+            divForMenu.remove();
+            const filterLocalStorage = {productName: orders.productName,productPrice: orders.productPrice}
+            const newArray = orderedProducts.filter(obj =>
+            obj.productName !== filterLocalStorage.productName || obj.productPrice !== filterLocalStorage.productPrice
+           );
+           localStorage.setItem('Orders',JSON.stringify(newArray))
+        })
+
+    })
+    const quantity = document.querySelectorAll('#divOfMenu')
+    quantity.forEach(elem=>{
+        const amount = elem.querySelector('.price-of-product').textContent
+        const amount2 =amount.replace('$','')
+        const amount3 = parseFloat(amount2)
+        const elem2 = elem.querySelector('.quantity-of-order').value
+        const totalA =amount3*elem2;
+        document.querySelector('.price-of-product').textContent = "$ "+totalA
+    })
+
+    const totalAmount = document.querySelectorAll('.price-of-product')
+    let totalAll =0;
+    totalAmount.forEach(elem => {
+        const amount = elem.textContent;
+        const amount2 =amount.replace('$','')
+        const amount3 = parseFloat(amount2)
+        totalAll += amount3;
+    })
+    document.querySelector('#total-amount').textContent = '$ '+totalAll
     function DisplayUser(){
     const loggedUser = JSON.parse(localStorage.getItem('LoggedInUsers'))
     if(loggedUser !== null){

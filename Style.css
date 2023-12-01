@@ -329,4 +329,96 @@ p {
   #card{
     display: none;
   }
-  
+.OrderdProducts{
+      width: 500px;
+      background: url('Images/menu-background-2.jpg');
+      margin: 50px auto;
+      border: 1px solid #ccc;
+      padding: 20px;
+      text-align: center;
+}
+.h2-order{
+    text-align: center;
+    margin: 10px auto 15px auto;
+    color: white;
+}
+.h2-ord{
+    border-bottom: 1px solid #45a049;
+}
+.menuProduct{
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    gap: 15px;
+}
+.name-of-products{
+    color: white;
+}
+.price-of-product{
+    color: white;
+}
+#divOfMenu{
+    margin: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#divOfMenu > input{
+    width: 40px;
+    height: 20px;
+}
+#divOfMenu > h2{
+    margin: 0;
+    font-size: 15px;
+    width: 170px;
+    height: 15px;
+    text-align: left;    
+}
+#divOfMenu >p {
+    font-size: 15px;
+    margin: 0;
+    color:#4caf50;
+    height: 15px;
+    margin-bottom: 10px;
+}
+.parent-total{
+    border-top: 1px solid #45a049;
+    margin: 20px 0 0 0;
+    display: flex;
+    justify-content: end;
+}
+.total-menu{
+    width: 40%;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    margin-right: 30px;
+    margin-top: 10px;
+}
+.total-menu >h2{
+    color: white;
+    margin-bottom: 0;
+}
+.total-menu > p{
+    color: #45a049;
+    font-size: 25px;
+    margin-bottom: 0;
+}
+.class-checkout{
+    display: flex;
+    justify-content: end;
+}
+.CheckOutBtn{
+    margin:10px 20px 0 0;
+    background-color: #45a049;
+    color:white;
+    border-radius: 20px;
+    font-size: 15px;
+    padding: 5px 10px;
+}
+.Delete-btn{
+    font-size: 10px;
+    color: white;
+    background-color: red;
+    border-radius: 20px;
+}
