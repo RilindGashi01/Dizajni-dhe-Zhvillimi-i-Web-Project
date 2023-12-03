@@ -18,7 +18,7 @@ singButt.addEventListener('click',()=>{
     const password2 = document.querySelector('#newPassword-2')
     if(username.value.length<6){
         document.querySelector('#usernameError').style.display='block'
-        if(!email.value.includes('@') && !email.value.endsWith('.com')){
+        if(!email.value.includes('@') || !email.value.endsWith('.com')){
             document.querySelector('#emailError').style.display='block'
         }
         if(password1.value !== password2.value){
@@ -55,8 +55,11 @@ LoginBtn.addEventListener('click',()=>{
         username:loginUsername,
         password:loginPassword
     }
-
-    if(savedUsers.find(user=>user.name === loginUsername && user.password === loginPassword)){
+    const logged= JSON.parse(localStorage.getItem('LoggedInUsers'))
+    if(logged !== null){
+        alert("You are already Sing-In, Sing-Out first if you want to change account")
+    }
+    else if(savedUsers.find(user=>user.name === loginUsername && user.password === loginPassword)){
         localStorage.setItem('LoggedInUsers',JSON.stringify(LogedInUser))
         location.reload();
     }else{

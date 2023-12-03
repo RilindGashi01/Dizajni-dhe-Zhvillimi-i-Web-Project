@@ -6,7 +6,7 @@ body{
 }
 .text{
     width: 40%;
-    margin: 120px auto;
+    margin: 100px auto;
     display: block;
 }
 .first-h3{
@@ -375,6 +375,7 @@ p {
     text-align: left;    
 }
 #divOfMenu >p {
+    width: 50px;
     font-size: 15px;
     margin: 0;
     color:#4caf50;
@@ -421,4 +422,29 @@ p {
     color: white;
     background-color: red;
     border-radius: 20px;
+}
+.all-reservations{
+    width: 40%;
+    background:url('Images/menu-background-2.jpg');
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    margin: 50px auto;
+}
+#div-of-reservations{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 30px;
+    color: white;
+}
+.res-h2{
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    margin: 30px 0;
+}
+.menu-res{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 30px;
+    color: white;
 }

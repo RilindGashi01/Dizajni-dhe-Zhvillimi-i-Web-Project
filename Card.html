@@ -85,23 +85,26 @@
         containerProducts.appendChild(divForMenu)
 
         dynamicButton.addEventListener('click',()=>{
-            divForMenu.remove();
+            divForMenu.remove();   
+            const localStorageProducts = JSON.parse(localStorage.getItem('Orders'))
             const filterLocalStorage = {productName: orders.productName,productPrice: orders.productPrice}
-            const newArray = orderedProducts.filter(obj =>
-            obj.productName !== filterLocalStorage.productName || obj.productPrice !== filterLocalStorage.productPrice
+            const newArray = localStorageProducts.filter(obj =>
+            obj.productName !== filterLocalStorage.productName && obj.productPrice !== filterLocalStorage.productPrice
            );
-           localStorage.setItem('Orders',JSON.stringify(newArray))
+           localStorage.setItem('Orders', JSON.stringify(newArray))
         })
 
     })
+    
     const quantity = document.querySelectorAll('#divOfMenu')
     quantity.forEach(elem=>{
+        const quantity = elem.querySelector('.quantity-of-order').value
         const amount = elem.querySelector('.price-of-product').textContent
         const amount2 =amount.replace('$','')
         const amount3 = parseFloat(amount2)
-        const elem2 = elem.querySelector('.quantity-of-order').value
-        const totalA =amount3*elem2;
-        document.querySelector('.price-of-product').textContent = "$ "+totalA
+        const quantity2 = parseInt(quantity)
+        const totalA =amount3*quantity2;
+        elem.querySelector('.price-of-product').textContent = "$ "+ totalA;
     })
 
     const totalAmount = document.querySelectorAll('.price-of-product')
@@ -111,6 +114,19 @@
         const amount2 =amount.replace('$','')
         const amount3 = parseFloat(amount2)
         totalAll += amount3;
+    })
+    const checkOutBtn = document.querySelector('.CheckOutBtn')
+    checkOutBtn.addEventListener('click',()=>{
+        alert("You have ordered sucesfully")
+        const preOrder = JSON.parse(localStorage.getItem('Orders'))
+        const preAllOrder = JSON.parse(localStorage.getItem('All-Orders'))
+        if(preAllOrder == null){
+        localStorage.setItem('All-Orders',JSON.stringify([preOrder]))
+        }else{
+            localStorage.setItem('All-Orders',JSON.stringify([...preAllOrder,preOrder]))
+        }
+        localStorage.setItem('Orders',JSON.stringify([]))
+        window.location.reload()
     })
     document.querySelector('#total-amount').textContent = '$ '+totalAll
     function DisplayUser(){

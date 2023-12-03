@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
+    <title>Restaurant</title>
+</head>
+<body>
+    <div class="menu">
+        <div class="categorys-of-menu">
+            <button id="drink" class="cate drink reserv">Reservation</button>
+            <button id="pasta" class="cate pasta all-orders">Orders</button>
+        </div>
+    </div> 
+
+   <div>
+    <div class="all-reservations">
+        <h2 class="res-h2">ALL RESERVATIONS</h2>
+        <div class="menu-res">
+            <p>Nr.</p>
+            <p>Date</p>
+            <p>NrPersons</p>
+            <p>Ambient</p></div>
+        </div>
+   </div>
+
+    <script>
+        const reser =document.querySelector('.reserv')
+        const ord = document.querySelector('.all-orders')
+        ord.addEventListener('click', ()=>{
+            document.querySelector('.all-reservations').style.display = 'none';
+        })
+        let count =1;
+        const allReservations = JSON.parse(localStorage.getItem('Reservation'))
+        allReservations.forEach(elem =>{
+            const allRes = document.querySelector('.all-reservations') 
+
+            const divReservations = document.createElement('div')
+            divReservations.id = 'div-of-reservations'
+
+            const nr = document.createElement('p')
+            nr.classList='nrRendor'
+            nr.textContent =count++;
+            divReservations.appendChild(nr)
+
+            const date = document.createElement('p')
+            date.classList = 'date-reservations'
+            date.textContent= elem.date
+            divReservations.appendChild(date)
+
+            const nrPers =document.createElement('p')
+            nrPers.classList = 'persons-reservations'
+            nrPers.textContent = elem.nrPersons
+            divReservations.appendChild(nrPers)
+
+            const ambient = document.createElement('p')
+            ambient.classList = 'ambient-reservations'
+            ambient.textContent = elem.OutIn
+            divReservations.appendChild(ambient)
+
+            allRes.appendChild(divReservations)
+
+        })
+    </script>
+</body>
+</html>

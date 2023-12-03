@@ -28,7 +28,6 @@ function DisplayUser(){
     }
 }
 DisplayUser();
-
 function hadleOrder(para1, para2){
     document.querySelector('#card').style.display = 'block'
 
@@ -40,7 +39,7 @@ function hadleOrder(para1, para2){
         productPrice : product_price
     }
     const preOrders = JSON.parse(localStorage.getItem('Orders'))
-            if(preOrders === null){
+            if(preOrders ==[]){
                 localStorage.setItem('Orders',JSON.stringify([orderedProducts]))
             }else{
                 localStorage.setItem('Orders',JSON.stringify([...preOrders,orderedProducts]))
