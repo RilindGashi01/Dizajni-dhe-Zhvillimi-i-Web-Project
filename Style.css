@@ -423,7 +423,7 @@ p {
     background-color: red;
     border-radius: 20px;
 }
-.all-reservations{
+.all-reservations {
     width: 40%;
     background:url('Images/menu-background-2.jpg');
     display: grid;
@@ -447,4 +447,34 @@ p {
     justify-content: space-between;
     margin: 0 30px;
     color: white;
+}
+.divallord{
+    display: none;
+}
+.allorders{
+    width: 50%;
+    background:url('Images/menu-background-2.jpg');
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    margin: 50px auto;
+    color: white;
+}
+.ord-h2{
+    text-align: center;
+    font-size: 24px;
+    margin: 30px 0;
+}
+.ord-menu{
+    margin: 0 30px;
+}
+#div-of-price{
+    margin: 10px 0;
+    border: 1px solid #93979b;
+    font-size: 10px;
+    display: grid;
+    grid-template-columns: repeat(4 ,1fr);
+    gap: 10px;
+}
+#div-of-prodcts{
+    width: 350px;
 }

@@ -36,16 +36,20 @@ res_btn.addEventListener('click', () =>{
         nrPersons : document.querySelector('#persons').value,
         OutIn: handleCheckbutton()
     }
-    console.log(resveration)
-    const pastReser = JSON.parse(localStorage.getItem('Reservation'))
-    if(pastReser === null){
-        localStorage.setItem('Reservation',JSON.stringify([resveration]))
-    }else{
-        localStorage.setItem('Reservation',JSON.stringify([...pastReser,resveration]))
+    const logIn =JSON.parse(localStorage.getItem('LoggedInUsers'))
+    if(logIn !== null){
+        const pastReser = JSON.parse(localStorage.getItem('Reservation'))
+        if(pastReser === null){
+            localStorage.setItem('Reservation',JSON.stringify([resveration]))
+        }else{
+            localStorage.setItem('Reservation',JSON.stringify([...pastReser,resveration]))
+        }
+        menu_res.style.display = 'none';
+        alert("You have succesfully reserved!")
+        menu_res.reset();
     }
-    
-    menu_res.style.display = 'none';
-    alert("You have succesfully reserved!")
-    menu_res.reset();
+    else{
+        alert("You need to login first")
+    }
 })
 

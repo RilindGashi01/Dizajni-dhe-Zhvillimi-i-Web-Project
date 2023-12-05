@@ -117,16 +117,21 @@
     })
     const checkOutBtn = document.querySelector('.CheckOutBtn')
     checkOutBtn.addEventListener('click',()=>{
-        alert("You have ordered sucesfully")
         const preOrder = JSON.parse(localStorage.getItem('Orders'))
         const preAllOrder = JSON.parse(localStorage.getItem('All-Orders'))
-        if(preAllOrder == null){
-        localStorage.setItem('All-Orders',JSON.stringify([preOrder]))
+        const login = JSON.parse(localStorage.getItem('LoggedInUsers'))
+        if(login !== null){
+        alert("You have ordered sucesfully")
+            if(preAllOrder == null){
+            localStorage.setItem('All-Orders',JSON.stringify([preOrder]))
+            }else{
+                localStorage.setItem('All-Orders',JSON.stringify([...preAllOrder,preOrder]))
+            }
+            localStorage.setItem('Orders',JSON.stringify([]))
+            window.location.reload()
         }else{
-            localStorage.setItem('All-Orders',JSON.stringify([...preAllOrder,preOrder]))
-        }
-        localStorage.setItem('Orders',JSON.stringify([]))
-        window.location.reload()
+        alert("You need to login first")
+    }
     })
     document.querySelector('#total-amount').textContent = '$ '+totalAll
     function DisplayUser(){

@@ -24,12 +24,23 @@
             <p>Ambient</p></div>
         </div>
    </div>
+   <div class="divallord">
+   <div class="allorders">
+        <h2 class="ord-h2">ALL ORDERS</h2>
+        <div class="ord-menu"></div>
+   </div>
+</div>
 
     <script>
         const reser =document.querySelector('.reserv')
         const ord = document.querySelector('.all-orders')
         ord.addEventListener('click', ()=>{
             document.querySelector('.all-reservations').style.display = 'none';
+            document.querySelector('.divallord').style.display='block'
+        })
+        reser.addEventListener('click',()=>{
+            document.querySelector('.divallord').style.display='none'
+            document.querySelector('.all-reservations').style.display = 'block';
         })
         let count =1;
         const allReservations = JSON.parse(localStorage.getItem('Reservation'))
@@ -61,6 +72,46 @@
 
             allRes.appendChild(divReservations)
 
+        })
+        let nrOrd =1;
+        const allOrd = JSON.parse(localStorage.getItem('All-Orders'))
+        allOrd.forEach(elem2 =>{
+            const divOrd = document.querySelector('.ord-menu')
+
+            const divOrders = document.createElement('div')
+            divOrders.id = 'div-of-orders'
+
+            const nrRen = document.createElement('p')
+            nrRen.classList = 'nrRendor-order'
+            nrRen.textContent = nrOrd++;
+            divOrders.appendChild(nrRen)
+
+            const divProduct = document.createElement('div')
+             divOrders.id = 'div-of-prodcts'
+            elem2.forEach(elem3 =>{
+            
+                const productsOrd = document.createElement('p')
+                productsOrd.classList = 'product-ordered'
+                productsOrd.textContent = elem3.productName
+                divProduct.appendChild(productsOrd)
+                divOrders.appendChild(divProduct)
+            })
+            const divPrice = document.createElement('div')
+            divOrders.id = 'div-of-price'
+            elem2.forEach(elem4 =>{
+                
+                const productPrice = document.createElement('p')
+                productPrice.classList = 'price-ordered'
+                productPrice.textContent = elem4.productPrice
+                divPrice.appendChild(productPrice)
+                divOrders.appendChild(divPrice)
+            })
+            const totalOrd = document.createElement('p')
+            totalOrd.classList = 'totalAmount'
+            totalOrd.textContent = "TOTALI: "
+            divOrders.appendChild(totalOrd)
+
+            divOrd.appendChild(divOrders)
         })
     </script>
 </body>
