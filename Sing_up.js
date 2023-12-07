@@ -18,13 +18,13 @@ singButt.addEventListener('click',()=>{
     const password2 = document.querySelector('#newPassword-2')
     if(username.value.length<6){
         document.querySelector('#usernameError').style.display='block'
-        if(!email.value.includes('@') || !email.value.endsWith('.com')){
+    }
+       else if(!email.value.includes('@') || !email.value.endsWith('.com')){
             document.querySelector('#emailError').style.display='block'
         }
-        if(password1.value !== password2.value){
+        else if(password1.value !== password2.value){
             document.querySelector('.passwordError').style.display = 'block'
-        }
-    }else{
+        }else{
         const User = {
             name: username.value,
             email: email.value,

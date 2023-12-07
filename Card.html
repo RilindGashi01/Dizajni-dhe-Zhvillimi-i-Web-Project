@@ -55,7 +55,8 @@
 </body>
 <script>
     const orderedProducts = JSON.parse(localStorage.getItem('Orders'))
-    orderedProducts.forEach(orders=>{
+    const inputvalue = JSON.parse(localStorage.getItem('Input'))
+    orderedProducts.forEach((orders,index)=>{
         const containerProducts = document.querySelector('.menuProduct')
         
         const divForMenu = document.createElement('div')
@@ -69,7 +70,7 @@
         const quantityInput = document.createElement('input');
         quantityInput.type = 'number';
         quantityInput.classList = 'quantity-of-order';
-        quantityInput.value = 5;
+        quantityInput.value = inputvalue[index] || 1;
         divForMenu.appendChild(quantityInput)
 
         const dynamicButton = document.createElement('button');
@@ -93,8 +94,26 @@
            );
            localStorage.setItem('Orders', JSON.stringify(newArray))
         })
+        quantityInput.addEventListener('input', () => {
+            orders.quantity = quantityInput.value;
+            localStorage.setItem('Orders', JSON.stringify(orderedProducts));
+        });
 
     })
+
+    const order_sa = document.querySelectorAll('.quantity-of-order')
+    let sasia1 =[];
+    order_sa.forEach(sasia =>{
+        sasia1.push(sasia.value)
+        sasia.addEventListener('input' ,()=>{
+            const index = Array.from(order_sa).indexOf(sasia);
+            sasia1[index] = sasia.value;
+            localStorage.setItem('Input', JSON.stringify(sasia1));
+    })
+    })
+    localStorage.setItem('Input',JSON.stringify(sasia1))
+
+            
     
     const quantity = document.querySelectorAll('#divOfMenu')
     quantity.forEach(elem=>{
@@ -104,7 +123,8 @@
         const amount3 = parseFloat(amount2)
         const quantity2 = parseInt(quantity)
         const totalA =amount3*quantity2;
-        elem.querySelector('.price-of-product').textContent = "$ "+ totalA;
+        elem.querySelector('.price-of-product').textContent = "$ "+ totalA.toFixed(2);
+
     })
 
     const totalAmount = document.querySelectorAll('.price-of-product')
@@ -117,15 +137,29 @@
     })
     const checkOutBtn = document.querySelector('.CheckOutBtn')
     checkOutBtn.addEventListener('click',()=>{
-        const preOrder = JSON.parse(localStorage.getItem('Orders'))
+            const allOfOrd =[]   
+            const quantity = document.querySelectorAll('#divOfMenu')
+            quantity.forEach(elem=>{
+            const product =elem.querySelector('.name-of-products').textContent
+            const quantity = elem.querySelector('.quantity-of-order').value
+            const amount = elem.querySelector('.price-of-product').textContent
+            const totaliOrder= {
+                productName : product,
+                productQuantity: quantity,
+                productPrice : amount,
+            }
+            allOfOrd.push(totaliOrder)
+        })
+        const total_menu = {totali : document.querySelector('#total-amount').textContent}
+        allOfOrd.push(total_menu)
         const preAllOrder = JSON.parse(localStorage.getItem('All-Orders'))
         const login = JSON.parse(localStorage.getItem('LoggedInUsers'))
         if(login !== null){
         alert("You have ordered sucesfully")
             if(preAllOrder == null){
-            localStorage.setItem('All-Orders',JSON.stringify([preOrder]))
+            localStorage.setItem('All-Orders',JSON.stringify([allOfOrd]))
             }else{
-                localStorage.setItem('All-Orders',JSON.stringify([...preAllOrder,preOrder]))
+                localStorage.setItem('All-Orders',JSON.stringify([...preAllOrder,allOfOrd]))
             }
             localStorage.setItem('Orders',JSON.stringify([]))
             window.location.reload()

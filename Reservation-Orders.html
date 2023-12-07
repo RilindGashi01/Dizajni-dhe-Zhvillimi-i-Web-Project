@@ -99,7 +99,12 @@
             const divPrice = document.createElement('div')
             divOrders.id = 'div-of-price'
             elem2.forEach(elem4 =>{
-                
+                const productQuantity = document.createElement('p')
+                productPrice.classList = 'quantity'
+                productPrice.textContent = elem4.productQuantity
+                divPrice.appendChild(productQuantity)
+                divOrders.appendChild(divPrice)
+
                 const productPrice = document.createElement('p')
                 productPrice.classList = 'price-ordered'
                 productPrice.textContent = elem4.productPrice
@@ -108,7 +113,7 @@
             })
             const totalOrd = document.createElement('p')
             totalOrd.classList = 'totalAmount'
-            totalOrd.textContent = "TOTALI: "
+            totalOrd.textContent = "TOTALI: " + elem2.totali
             divOrders.appendChild(totalOrd)
 
             divOrd.appendChild(divOrders)
