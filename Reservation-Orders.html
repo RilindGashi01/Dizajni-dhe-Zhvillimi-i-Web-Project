@@ -7,6 +7,7 @@
     <title>Restaurant</title>
 </head>
 <body>
+    <button class="red-button">GO BACK</button>
     <div class="menu">
         <div class="categorys-of-menu">
             <button id="drink" class="cate drink reserv">Reservation</button>
@@ -27,11 +28,23 @@
    <div class="divallord">
    <div class="allorders">
         <h2 class="ord-h2">ALL ORDERS</h2>
+        <div class="menu-res">
+            <p>Nr.</p>
+            <p>Product Name</p>
+            <p class="quantity">Quantity</p>
+            <p class="price">Price</p>
+            <p>Totali</p>
+        </div>
         <div class="ord-menu"></div>
    </div>
 </div>
 
+
     <script>
+        const button = document.querySelector('.red-button')
+        button.addEventListener('click',()=>{
+            window.location.pathname = "Sing_up.html"
+        })
         const reser =document.querySelector('.reserv')
         const ord = document.querySelector('.all-orders')
         ord.addEventListener('click', ()=>{
@@ -96,24 +109,31 @@
                 divProduct.appendChild(productsOrd)
                 divOrders.appendChild(divProduct)
             })
+            const divquantity = document.createElement('div')
+            divquantity.id = 'div-of-quantity'
+            elem2.forEach(elem5 =>{
+                const productQuantity = document.createElement('p')
+                productQuantity.classList = 'quantity-ordered'
+                productQuantity.textContent=elem5.productQuantity 
+                divquantity.appendChild(productQuantity)
+                divOrders.appendChild(divquantity)
+            })
             const divPrice = document.createElement('div')
             divOrders.id = 'div-of-price'
+            let totaliPrice = 0;
             elem2.forEach(elem4 =>{
-                const productQuantity = document.createElement('p')
-                productPrice.classList = 'quantity'
-                productPrice.textContent = elem4.productQuantity
-                divPrice.appendChild(productQuantity)
-                divOrders.appendChild(divPrice)
-
                 const productPrice = document.createElement('p')
                 productPrice.classList = 'price-ordered'
                 productPrice.textContent = elem4.productPrice
                 divPrice.appendChild(productPrice)
                 divOrders.appendChild(divPrice)
+                totaliPrice= elem4.totali
             })
+            
+            
             const totalOrd = document.createElement('p')
             totalOrd.classList = 'totalAmount'
-            totalOrd.textContent = "TOTALI: " + elem2.totali
+            totalOrd.textContent = "TOTALI: " + totaliPrice
             divOrders.appendChild(totalOrd)
 
             divOrd.appendChild(divOrders)
