@@ -6,7 +6,7 @@ body{
 }
 .text{
     width: 40%;
-    margin: 100px auto;
+    margin: 130px auto;
     display: block;
 }
 .first-h3{
@@ -109,7 +109,7 @@ body{
     margin: 30px auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 5px;
+    gap: 10px;
 }
 .menus-h2 {
     margin:40px 0;

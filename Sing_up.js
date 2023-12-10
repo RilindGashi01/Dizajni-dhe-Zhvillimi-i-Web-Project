@@ -16,15 +16,17 @@ singButt.addEventListener('click',()=>{
     const email = document.querySelector('#newEmail')
     const password1 = document.querySelector('#newPassword')
     const password2 = document.querySelector('#newPassword-2')
+    if(username.value.length<6 ||!email.value.includes('@') || !email.value.endsWith('.com')  || password1.value !== password2.value){
     if(username.value.length<6){
         document.querySelector('#usernameError').style.display='block'
     }
-       else if(!email.value.includes('@') || !email.value.endsWith('.com')){
+    if(!email.value.includes('@') || !email.value.endsWith('.com')){
             document.querySelector('#emailError').style.display='block'
         }
-        else if(password1.value !== password2.value){
+    if(password1.value !== password2.value){
             document.querySelector('.passwordError').style.display = 'block'
-        }else{
+        }
+    }else{
         const User = {
             name: username.value,
             email: email.value,
